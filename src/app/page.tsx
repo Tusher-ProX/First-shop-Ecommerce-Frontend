@@ -1,6 +1,7 @@
 import { Check } from "lucide-react";
 
 import HeroProductSlider from "../components/HeroProductSlider";
+import ProductGrid from "../components/products/ProductGrid";
 
 const benefits = [
   "Carefully Selected Designs",
@@ -73,6 +74,31 @@ export default function Home() {
 			<div className="order-1 lg:order-2">
 				<HeroProductSlider />
 			</div>
+		</section>
+
+		{/* All Products Section */}
+		<section id="collections" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+			<div className="relative mb-10">
+				<div className="text-center">
+					<h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+						All Products
+					</h2>
+
+					<p className="mx-auto mt-3 max-w-lg text-sm leading-6 text-muted">
+						Explore our carefully selected collection of elegant designs.
+					</p>
+				</div>
+
+				<a
+					href="/products"
+					className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-burgundy transition-colors hover:text-[#600018] sm:absolute sm:right-0 sm:top-1/2 sm:mt-0 sm:-translate-y-1/2"
+				>
+					View All Products
+					<span aria-hidden="true">→</span>
+				</a>
+			</div>
+
+			<ProductGrid />
 		</section>
     </main>
   );

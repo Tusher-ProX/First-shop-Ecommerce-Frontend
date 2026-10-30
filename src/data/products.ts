@@ -1,0 +1,38 @@
+export const products = [
+	{
+		id: "1",
+		name: "Elegant Saree",
+		price: 1500,
+		originalPrice: 1800,
+		image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c",
+		label: "Bestseller",
+		stock: 12,
+	},
+	{
+		id: "2",
+		name: "Classic Saree",
+		price: 1800,
+		originalPrice: 1800,
+		image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c",
+		label: "New",
+		stock: 0,
+	},
+	{
+		id: "3",
+		name: "Festive Collection",
+		price: 2200,
+		originalPrice: 2500,
+		image: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb",
+		label: "Featured",
+		stock: 8,
+	},
+	{
+		id: "4",
+		name: "Premium Style",
+		price: 2500,
+		originalPrice: 2500,
+		image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c",
+		label: "Premium",
+		stock: 5,
+	},
+];
