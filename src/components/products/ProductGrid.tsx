@@ -34,9 +34,21 @@ export default function ProductGrid() {
                 ))}
             </div>
 
+
             {/* Pagination */}
             {totalPages > 1 && (
                 <div className="mt-10 flex items-center justify-center gap-2">
+
+                    {/* Previous Button */}
+                    <button
+                        onClick={() => setCurrentPage((prev) => prev - 1)}
+                        disabled={currentPage === 1}
+                        className="px-3 py-2 text-sm text-foreground transition-colors hover:text-burgundy disabled:cursor-not-allowed disabled:opacity-40"
+                    >
+                        ← Previous
+                    </button>
+
+                    {/* Page Numbers */}
                     {Array.from(
                         { length: totalPages },
                         (_, index) => index + 1
@@ -44,17 +56,29 @@ export default function ProductGrid() {
                         <button
                             key={page}
                             onClick={() => setCurrentPage(page)}
+                            aria-current={currentPage === page ? "page" : undefined}
                             className={`flex h-10 w-10 items-center justify-center text-sm transition-colors ${
                                 currentPage === page
                                     ? "bg-burgundy text-white"
-                                    : "border border-border text-foreground hover:bg-burgundy hover:text-white"
+                                    : "text-foreground hover:bg-burgundy/10"
                             }`}
                         >
                             {page}
                         </button>
                     ))}
+
+                    {/* Next Button */}
+                    <button
+                        onClick={() => setCurrentPage((prev) => prev + 1)}
+                        disabled={currentPage === totalPages}
+                        className="px-3 py-2 text-sm text-foreground transition-colors hover:text-burgundy disabled:cursor-not-allowed disabled:opacity-40"
+                    >
+                        Next →
+                    </button>
+
                 </div>
             )}
+
         </div>
     );
 }
