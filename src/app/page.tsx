@@ -2,6 +2,7 @@ import { Check } from "lucide-react";
 
 import HeroProductSlider from "../components/HeroProductSlider";
 import ProductGrid from "../components/products/ProductGrid";
+import OurStoryPreview from "../components/OurStoryPreview";
 
 const benefits = [
   "Carefully Selected Designs",
@@ -100,6 +101,9 @@ export default function Home() {
 
 			<ProductGrid />
 		</section>
+
+		{/* Our Story Section */}
+		<OurStoryPreview />
     </main>
   );
 }

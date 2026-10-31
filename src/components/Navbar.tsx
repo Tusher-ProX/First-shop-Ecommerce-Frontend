@@ -16,10 +16,11 @@ export default function Navbar() {
 	const [searchOpen, setSearchOpen] = useState(false);
 
 	const navLinks = [
-		{ name: "Home", href: "/" },
-		{ name: "Shop", href: "/products" },
-		{ name: "Categories", href: "/categories" },
-		{ name: "About", href: "/about" },
+		{ name: "HOME", href: "/" },
+		{ name: "SHOP", href: "/products" },
+		{ name: "CATEGORIES", href: "/categories" },
+		{ name: "ABOUT", href: "/about" },
+		{ name: "CONTACT", href: "/contect" },
 	];
 
 	return (

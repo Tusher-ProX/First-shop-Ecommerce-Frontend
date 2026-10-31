@@ -1,6 +1,7 @@
 export const aboutContent = {
     story: {
         title: "The Story Behind Our Brand",
+        shortSummary: "Sharees Canvas BD celebrates the beauty, elegance, and timeless charm of sarees. We bring together beautiful designs and quality craftsmanship to make every woman feel confident, graceful, and special.",
         image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=1000",
         imageAlt: "Elegant traditional saree",
         paragraphs: [
