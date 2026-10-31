@@ -45,7 +45,7 @@ export default function Home() {
 					</a>
 
 					<a
-						href="#about"
+						href="/about"
 						className="inline-flex min-h-12 items-center border-b border-gold px-1 text-sm font-medium text-foreground transition-colors hover:text-burgundy"
 					>
 						Discover Our Story
