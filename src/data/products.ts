@@ -1,120 +1,93 @@
 
-export const products = [
+export type Product = {
+    id: string;
+    name: string;
+    price: number;
+    originalPrice: number;
+    image: string;
+    images?: string[];
+    label: string;
+    sku?: string;
+    description?: string;
+    fabric?: string;
+    blousePiece?: boolean;
+    blousePiecePrice?: number;
+    colors?: {
+        name: string;
+        hex: string;
+        images: string[];
+    }[];
+    stock: number;
+
+    rating: number;
+    reviewCount: number;
+};
+
+export const products: Product[] = [
+
     {
         id: "1",
         name: "Elegant Saree",
+
+        // Pricing
         price: 1500,
         originalPrice: 1800,
+        blousePiece: true,
+        blousePiecePrice: 300,
+
+        // Product Images
         image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c",
+        images: [
+            "https://images.unsplash.com/photo-1610030469983-98e550d6193c",
+            "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb",
+            "https://images.unsplash.com/photo-1610030469983-98e550d6193c",
+        ],
+
+        // Product Information
         label: "Bestseller",
+        sku: "SC-001",
+        description: "An elegant saree designed for special occasions, combining timeless style with beautiful details.",
+        fabric: "Silk",
+
+        // Available Colors
+        colors: [
+            {
+                name: "Maroon",
+                hex: "#722F3E",
+                images: [
+                    "https://images.unsplash.com/photo-1610030469983-98e550d6193c",
+                    "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb",
+                ],
+            },
+            {
+                name: "Red",
+                hex: "#B91C1C",
+                images: [
+                    "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb",
+                ],
+            },
+            {
+                name: "Black",
+                hex: "#222222",
+                images: [
+                    "https://images.unsplash.com/photo-1610030469983-98e550d6193c",
+                ],
+            },
+            {
+                name: "Navy Blue",
+                hex: "#1E3A5F",
+                images: [
+                    "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb",
+                ],
+            },
+        ],
+
+        // Stock
         stock: 12,
+
+        // Rating & Reviews
+        rating: 4.8,
+        reviewCount: 24,
     },
-    {
-        id: "2",
-        name: "Classic Saree",
-        price: 1800,
-        originalPrice: 1800,
-        image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c",
-        label: "New",
-        stock: 0,
-    },
-    {
-        id: "3",
-        name: "Festive Collection",
-        price: 2200,
-        originalPrice: 2500,
-        image: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb",
-        label: "Featured",
-        stock: 8,
-    },
-    {
-        id: "4",
-        name: "Premium Style",
-        price: 2500,
-        originalPrice: 2500,
-        image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c",
-        label: "Premium",
-        stock: 5,
-    },
-    {
-        id: "5",
-        name: "Traditional Saree",
-        price: 1900,
-        originalPrice: 2200,
-        image: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb",
-        label: "Traditional",
-        stock: 10,
-    },
-    {
-        id: "6",
-        name: "Wedding Collection",
-        price: 3200,
-        originalPrice: 3600,
-        image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c",
-        label: "Wedding",
-        stock: 6,
-    },
-    {
-        id: "7",
-        name: "Modern Saree",
-        price: 2100,
-        originalPrice: 2400,
-        image: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb",
-        label: "Modern",
-        stock: 9,
-    },
-    {
-        id: "8",
-        name: "Luxury Collection",
-        price: 4000,
-        originalPrice: 4500,
-        image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c",
-        label: "Luxury",
-        stock: 3,
-    },
-    {
-        id: "9",
-        name: "Party Wear Saree",
-        price: 2800,
-        originalPrice: 3100,
-        image: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb",
-        label: "Party Wear",
-        stock: 7,
-    },
-    {
-        id: "10",
-        name: "Casual Collection",
-        price: 1600,
-        originalPrice: 1900,
-        image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c",
-        label: "Casual",
-        stock: 11,
-    },
-    {
-        id: "11",
-        name: "Designer Saree",
-        price: 3500,
-        originalPrice: 3900,
-        image: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb",
-        label: "Designer",
-        stock: 4,
-    },
-    {
-        id: "12",
-        name: "Classic Premium",
-        price: 2600,
-        originalPrice: 2900,
-        image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c",
-        label: "Premium",
-        stock: 8,
-    },
-    {
-        id: "13",
-        name: "Exclusive Collection",
-        price: 4500,
-        originalPrice: 5000,
-        image: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb",
-        label: "Exclusive",
-        stock: 2,
-    },
+
 ];

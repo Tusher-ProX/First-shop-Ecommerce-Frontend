@@ -8,6 +8,7 @@ type ProductCardProps = {
     price: number;
     originalPrice?: number;
     stock: number;
+    fabric?: string;
 };
 
 export default function ProductCard({
@@ -17,6 +18,7 @@ export default function ProductCard({
     price,
     originalPrice,
     stock,
+    fabric,
 }: ProductCardProps) {
     const inStock = stock > 0;
 
@@ -37,6 +39,11 @@ export default function ProductCard({
                 {/* Product Information */}
                 <div className="mt-3 space-y-2 text-center">
                     {/* Product Name and Stock Status */}
+                    {fabric && (
+                        <p className="text-xs text-gray-500">
+                            {fabric}
+                        </p>
+                    )}
                     <div className="flex flex-col items-center gap-2">
                         <h3 className="text-sm font-medium text-[#3D2925] sm:text-base">
                             {name}
