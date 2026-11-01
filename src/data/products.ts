@@ -2,6 +2,7 @@
 export type Product = {
     id: string;
     name: string;
+    category: string;
     price: number;
     originalPrice: number;
     image: string;
@@ -28,7 +29,8 @@ export const products: Product[] = [
     {
         id: "1",
         name: "Elegant Saree",
-
+        category: "all-sarees",
+        
         // Pricing
         price: 1500,
         originalPrice: 1800,

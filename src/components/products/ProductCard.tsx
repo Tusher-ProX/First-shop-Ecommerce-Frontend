@@ -23,7 +23,7 @@ export default function ProductCard({
     const inStock = stock > 0;
 
     return (
-        <Link href={`/products/${id}`} className="group block">
+        <Link href={`/products/${id}`} className="group block hover:bg-white">
             <article className="h-full p-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:p-3">
                 {/* Product Image */}
                 <div className="relative aspect-3/4 overflow-hidden bg-[#F1EAE3]">

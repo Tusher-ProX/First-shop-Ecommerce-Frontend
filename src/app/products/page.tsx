@@ -19,9 +19,9 @@ export default function ProductsPage() {
                         Discover our complete collection of elegant designs.
                     </p>
                 </div>
-
+                
                 {/* All Products */}
-                <ProductGrid />
+                <ProductGrid showToolbar />
 
             </section>
         </main>
