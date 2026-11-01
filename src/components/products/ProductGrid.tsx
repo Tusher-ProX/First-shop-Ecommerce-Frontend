@@ -1,50 +1,101 @@
 "use client";
 
-import { useRef, useState } from "react";
-import ProductCard from "./ProductCard";
-import { products } from "@/src/data/products";
+import { useCallback, useRef, useState } from "react";
+
+import FilterSidebar from "./FilterSidebar";
+import ProductResults from "./ProductResults";
+import ProductToolbar from "./ProductToolbar";
+
+import { useFilterOptions } from "@/src/hooks/products/useFilterOptions";
+import { useProductFilters } from "@/src/hooks/products/useProductFilters";
+import { useProducts } from "@/src/hooks/products/useProducts";
+import { useEscapeKey } from "@/src/hooks/useEscapeKey";
 
 const PRODUCTS_PER_PAGE = 12;
 
-export default function ProductGrid() {
-    const [currentPage, setCurrentPage] = useState(1);
+export default function ProductGrid({
+    showToolbar = false,
+}: {
+    showToolbar?: boolean;
+}) {
+    const [isMobileFilterOpen, setIsMobileFilterOpen] =
+        useState(false);
+
     const productGridRef = useRef<HTMLDivElement>(null);
 
-    const totalPages = Math.ceil(products.length / PRODUCTS_PER_PAGE);
+    const closeMobileFilter = useCallback(() => {
+        setIsMobileFilterOpen(false);
+    }, []);
 
-    const getPageNumbers = () => {
-        const pages = new Set<number>();
+    useEscapeKey(closeMobileFilter);
 
-        pages.add(1);
-        pages.add(totalPages);
-        pages.add(currentPage - 1);
-        pages.add(currentPage);
-        pages.add(currentPage + 1);
+    // Load filter options
+    const {
+        isFilterReady,
+        filterOptions,
+        priceRange,
+        error: filterError,
+        retry: retryFilterOptions,
+    } = useFilterOptions();
 
-        const sortedPages = [...pages]
-            .filter((page) => page >= 1 && page <= totalPages)
-            .sort((a, b) => a - b);
-
-        const result: (number | "...")[] = [];
-
-        sortedPages.forEach((page, index) => {
-            if (index > 0 && page - sortedPages[index - 1] > 1) {
-                result.push("...");
-            }
-
-            result.push(page);
-        });
-
-        return result;
-    };
-
-    const startIndex = (currentPage - 1) * PRODUCTS_PER_PAGE;
-    const currentProducts = products.slice(
-        startIndex,
-        startIndex + PRODUCTS_PER_PAGE
+    // Manage filter and sorting state
+    const {
+        currentPage,
+        setCurrentPage,
+        sortOrder,
+        setSortOrder,
+        selectedMinPrice,
+        selectedMaxPrice,
+        selectedCategories,
+        selectedFabrics,
+        selectedColors,
+        updateCategory,
+        updateFabric,
+        updateColor,
+        updateMinPrice,
+        updateMaxPrice,
+        clearFilters,
+    } = useProductFilters(
+        isFilterReady,
+        priceRange.min,
+        priceRange.max
     );
 
+    // Fetch products
+    const {
+        isLoading,
+        error: productError,
+        currentProducts,
+        totalProducts,
+        totalPages,
+        retry: retryProducts,
+    } = useProducts(
+        isFilterReady,
+        {
+            page: currentPage,
+            limit: PRODUCTS_PER_PAGE,
+            minPrice: selectedMinPrice,
+            maxPrice: selectedMaxPrice,
+            categories: selectedCategories,
+            fabrics: selectedFabrics,
+            colors: selectedColors,
+            sortBy: sortOrder,
+        }
+    );
+
+    const error = filterError || productError;
+
+    const handleRetry = () => {
+        if (filterError) {
+            retryFilterOptions();
+        } else {
+            retryProducts();
+        }
+    };
+
     const handlePageChange = (page: number) => {
+        if (page < 1 || page > totalPages) return;
+
         setCurrentPage(page);
 
         productGridRef.current?.scrollIntoView({
@@ -53,74 +104,70 @@ export default function ProductGrid() {
         });
     };
 
-    if (products.length === 0) {
-        return (
-            <p className="py-12 text-center text-gray-500">
-                No products found.
-            </p>
-        );
-    }
-
     return (
         <div ref={productGridRef} className="scroll-mt-24">
-            {/* Product Grid */}
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                {currentProducts.map((product) => (
-                    <ProductCard key={product.id} {...product} />
-                ))}
-            </div>
-
-
-            {/* Pagination */}
-            {totalPages > 1 && (
-                <div className="mt-10 flex flex-wrap items-center justify-center gap-1 sm:gap-2">
-
-                    {/* Previous Button */}
-                    <button
-                        onClick={() => handlePageChange(currentPage - 1)}
-                        disabled={currentPage === 1}
-                        className="px-3 py-2 text-sm text-foreground transition-colors hover:text-burgundy disabled:cursor-not-allowed disabled:opacity-40"
-                    >
-                        ← Previous
-                    </button>
-
-                    {/* Page Numbers */}
-                    {getPageNumbers().map((page, index) =>
-                        page === "..." ? (
-                            <span
-                                key={`ellipsis-${index}`}
-                                className="flex h-10 w-8 items-center justify-center text-muted"
-                            >
-                                ...
-                            </span>
-                        ) : (
-                            <button
-                                key={page}
-                                onClick={() => handlePageChange(page)}
-                                aria-current={currentPage === page ? "page" : undefined}
-                                className={`flex h-10 w-10 items-center justify-center text-sm transition-colors ${
-                                    currentPage === page
-                                        ? "bg-burgundy text-white"
-                                        : "text-foreground hover:bg-burgundy/10"
-                                }`}
-                            >
-                                {page}
-                            </button>
-                        )
-                    )}
-
-                    {/* Next Button */}
-                    <button
-                        onClick={() => handlePageChange(currentPage + 1)}
-                        disabled={currentPage === totalPages}
-                        className="px-3 py-2 text-sm text-foreground transition-colors hover:text-burgundy disabled:cursor-not-allowed disabled:opacity-40"
-                    >
-                        Next →
-                    </button>
-
-                </div>
+            {/* Product Toolbar */}
+            {showToolbar && (
+                <ProductToolbar
+                    totalProducts={totalProducts}
+                    sortOrder={sortOrder}
+                    onSortChange={setSortOrder}
+                    onOpenMobileFilter={() =>
+                        setIsMobileFilterOpen(true)
+                    }
+                />
             )}
 
+            <div
+                className={
+                    showToolbar
+                        ? "grid grid-cols-1 gap-8 lg:grid-cols-[250px_minmax(0,1fr)]"
+                        : ""
+                }
+            >
+                {/* Filter Sidebar */}
+                {showToolbar && (
+                    <FilterSidebar
+                        categories={filterOptions.categories}
+                        fabrics={filterOptions.fabrics}
+                        colors={filterOptions.colors}
+                        selectedCategories={selectedCategories}
+                        onCategoryChange={updateCategory}
+                        minPriceLimit={priceRange.min}
+                        maxPriceLimit={priceRange.max}
+                        minPrice={selectedMinPrice}
+                        maxPrice={selectedMaxPrice}
+                        onMinPriceChange={updateMinPrice}
+                        onMaxPriceChange={updateMaxPrice}
+                        selectedFabrics={selectedFabrics}
+                        onFabricChange={updateFabric}
+                        selectedColors={selectedColors}
+                        onColorChange={updateColor}
+                        onClearFilters={clearFilters}
+                        isMobileOpen={isMobileFilterOpen}
+                        onClose={closeMobileFilter}
+                    />
+                )}
+
+                {/* Product Results */}
+                <div className="min-w-0">
+                    {!isFilterReady && !filterError ? (
+                        <p className="py-12 text-center text-muted">
+                            Loading filters...
+                        </p>
+                    ) : (
+                        <ProductResults
+                            isLoading={isLoading}
+                            error={error}
+                            currentProducts={currentProducts}
+                            currentPage={currentPage}
+                            totalPages={totalPages}
+                            onPageChange={handlePageChange}
+                            onRetry={handleRetry}
+                        />
+                    )}
+                </div>
+            </div>
         </div>
     );
 }
