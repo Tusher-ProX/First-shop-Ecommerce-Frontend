@@ -31,29 +31,29 @@ export default async function ProductDetailsPage({
 
     return (
         <ProductReviewProvider>
-            <main className="min-h-screen bg-cream px-4 py-10">
+            <main className="min-h-screen bg-background px-4 py-10">
                 {/* Breadcrumb Navigation */}
                 <div className="mx-auto mb-8 max-w-7xl">
                     <nav className="flex flex-wrap items-center gap-2 text-sm">
                         <Link
                             href="/"
-                            className="text-gray-500 transition-colors hover:text-burgundy"
+                            className="text-muted-foreground transition-colors hover:text-primary"
                         >
                             Home
                         </Link>
 
-                        <span className="text-gray-400">/</span>
+                        <span className="text-muted-foreground">/</span>
 
                         <Link
                             href="/products"
-                            className="text-gray-500 transition-colors hover:text-burgundy"
+                            className="text-muted-foreground transition-colors hover:text-primary"
                         >
                             Shop
                         </Link>
 
-                        <span className="text-gray-400">/</span>
+                        <span className="text-muted-foreground">/</span>
 
-                        <span className="font-medium text-burgundy">
+                        <span className="font-medium text-primary">
                             {product.name}
                         </span>
                     </nav>
@@ -76,7 +76,7 @@ export default async function ProductDetailsPage({
                     {/* Right Side - Product Information */}
                     <div>
                         {/* Product Name */}
-                        <h1 className="text-3xl font-semibold text-burgundy">
+                        <h1 className="text-3xl font-semibold text-primary">
                             {product.name}
                         </h1>
 
@@ -92,17 +92,17 @@ export default async function ProductDetailsPage({
 
                         {/* Product Price */}
                         <div className="mt-5 flex flex-wrap items-center gap-3">
-                            <span className="text-2xl font-semibold text-burgundy">
+                            <span className="text-2xl font-semibold text-primary">
                                 ৳{product.price.toLocaleString("en-BD")}
                             </span>
 
                             {product.originalPrice > product.price && (
                                 <>
-                                    <span className="text-lg text-gray-400 line-through">
+                                    <span className="text-lg text-muted-foreground line-through">
                                         ৳{product.originalPrice.toLocaleString("en-BD")}
                                     </span>
 
-                                    <span className="bg-burgundy/10 px-3 py-1 text-sm font-medium text-burgundy">
+                                    <span className="bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
                                         {Math.round(
                                             ((product.originalPrice - product.price) /
                                                 product.originalPrice) *
@@ -114,13 +114,13 @@ export default async function ProductDetailsPage({
                         </div>
 
                         {/* Product Description */}
-                        <p className="mt-4 text-gray-600">
+                        <p className="mt-4 text-muted-foreground">
                             {product.description ||
                                 "Product description coming soon."}
                         </p>
 
                         {/* Product Details */}
-                        <div className="mt-6 space-y-3 border-y border-[#E8DDD2] py-5">
+                        <div className="mt-6 space-y-3 border-y border-border py-5">
                             {/* Blouse Piece & Total Price */}
                             <ProductPurchaseOptions
                                 price={product.price}
@@ -135,8 +135,8 @@ export default async function ProductDetailsPage({
                             <ProductShare productName={product.name} />
 
                             {product.fabric && (
-                                <p className="text-sm text-gray-600">
-                                    <span className="font-medium text-[#3D2925]">
+                                <p className="text-sm text-muted-foreground">
+                                    <span className="font-medium text-foreground">
                                         Fabric:
                                     </span>{" "}
                                     {product.fabric}
@@ -144,8 +144,8 @@ export default async function ProductDetailsPage({
                             )}
 
                             {product.sku && (
-                                <p className="text-sm text-gray-600">
-                                    <span className="font-medium text-[#3D2925]">
+                                <p className="text-sm text-muted-foreground">
+                                    <span className="font-medium text-foreground">
                                         Product Code:
                                     </span>{" "}
                                     {product.sku}
@@ -153,24 +153,24 @@ export default async function ProductDetailsPage({
                             )}
 
                             <p className="text-sm">
-                                <span className="font-medium text-[#3D2925]">
+                                <span className="font-medium text-foreground">
                                     Availability:
                                 </span>{" "}
 
                                 {product.stock > 0 ? (
-                                    <span className="text-green-700">
+                                    <span className="text-success">
                                         In Stock ({product.stock} available)
                                     </span>
                                 ) : (
-                                    <span className="text-red-600">
+                                    <span className="text-error">
                                         Out of Stock
                                     </span>
                                 )}
                             </p>
 
                             {product.blousePiece !== undefined && (
-                                <p className="text-sm text-gray-600">
-                                    <span className="font-medium text-[#3D2925]">
+                                <p className="text-sm text-muted-foreground">
+                                    <span className="font-medium text-foreground">
                                         Blouse Piece:
                                     </span>{" "}
                                     {product.blousePiece ? (

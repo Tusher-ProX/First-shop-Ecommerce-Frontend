@@ -2,12 +2,12 @@ import ProductGrid from "@/src/components/products/ProductGrid";
 
 export default function ProductsPage() {
     return (
-        <main className="min-h-screen bg-cream">
+        <main className="min-h-screen bg-background">
             <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
 
                 {/* Page Heading */}
                 <div className="mb-10 text-center">
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-burgundy">
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
                         Explore Our Collection
                     </p>
 
