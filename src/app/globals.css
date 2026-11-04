@@ -1,30 +1,85 @@
 @import "tailwindcss";
 
 :root {
-    /* Brand Colors */
-    --brand-burgundy: #800020;
-    --brand-cream: #FFF8F0;
-    --brand-gold: #C6A15B;
+    /* Primitive palette */
+    --green-800: #043D35;
+    --cream-50: #FFF8F0;
+    --gold-500: #C6A15B;
+    --gold-600: #D4A64A;
+    --white: #FFFFFF;
+    --stone-800: #292524;
+    --stone-500: #78716C;
+    --brown-800: #3D2925;
+    --sand-100: #F1EAE3;
+    --sand-150: #EDE5DA;
+    --sand-200: #E9DED3;
+    --red-700: #B91C1C;
+    --green-700: #15803D;
 
-    /* UI Colors */
-    --background: #FFF8F0;
-    --foreground: #292524;
-    --card-background: #FFFFFF;
-    --muted-foreground: #78716C;
-    --border-color: #E9DED3;
+    /* Semantic light theme */
+    --background: var(--cream-50);
+    --foreground: var(--stone-800);
+    --surface: var(--white);
+    --surface-muted: var(--sand-100);
+    --primary: var(--green-800);
+    --primary-foreground: var(--white);
+    --inverse-foreground: var(--white);
+    --secondary: var(--cream-50);
+    --secondary-foreground: var(--stone-800);
+    --accent: var(--gold-500);
+    --accent-foreground: var(--stone-800);
+    --muted: var(--stone-500);
+    --muted-foreground: var(--stone-500);
+    --border: var(--sand-200);
+    --input: var(--surface);
+    --ring: var(--green-800);
+    --success: var(--green-700);
+    --warning: var(--gold-600);
+    --error: var(--red-700);
+}
+
+.dark {
+    --background: #17211F;
+    --foreground: #F8FAF9;
+    --surface: #22302D;
+    --surface-muted: #2C3B37;
+    --primary: #6DB5A5;
+    --primary-foreground: #10211D;
+    --inverse-foreground: #FFFFFF;
+    --secondary: #2C3B37;
+    --secondary-foreground: #F8FAF9;
+    --accent: #E4C47D;
+    --accent-foreground: #17211F;
+    --muted: #A7B3AF;
+    --muted-foreground: #A7B3AF;
+    --border: #40514C;
+    --input: #22302D;
+    --ring: #6DB5A5;
+    --success: #72C58C;
+    --warning: #E4C47D;
+    --error: #F87171;
 }
 
 @theme inline {
     --color-background: var(--background);
     --color-foreground: var(--foreground);
-
-    --color-burgundy: var(--brand-burgundy);
-    --color-cream: var(--brand-cream);
-    --color-gold: var(--brand-gold);
-
-    --color-card: var(--card-background);
-    --color-muted: var(--muted-foreground);
-    --color-border: var(--border-color);
+    --color-surface: var(--surface);
+    --color-surface-muted: var(--surface-muted);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-inverse-foreground: var(--inverse-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+    --color-success: var(--success);
+    --color-warning: var(--warning);
+    --color-error: var(--error);
 
     --font-sans: var(--font-geist-sans);
     --font-mono: var(--font-geist-mono);

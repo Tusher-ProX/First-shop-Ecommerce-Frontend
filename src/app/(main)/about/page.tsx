@@ -6,10 +6,10 @@ import { aboutContent } from "@/src/data/about";
 
 export default function AboutPage() {
     return (
-        <main className="min-h-screen bg-cream">
+        <main className="min-h-screen bg-background">
 
             {/* Brand Story Section */}
-            <section className="bg-card py-20">
+            <section className="bg-surface py-20">
                 <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 md:grid-cols-2">
 
                     {/* Story Image */}
@@ -26,11 +26,11 @@ export default function AboutPage() {
 
                     {/* Story Content */}
                     <div>
-                        <p className="text-sm font-medium uppercase tracking-[0.2em] text-gold">
+                        <p className="text-sm font-medium uppercase tracking-[0.2em] text-accent">
                             Who We Are
                         </p>
 
-                        <h2 className="mt-3 text-3xl font-semibold text-burgundy md:text-4xl">
+                        <h2 className="mt-3 text-3xl font-semibold text-primary md:text-4xl">
                             {aboutContent.story.title}
                         </h2>
 
@@ -58,7 +58,7 @@ export default function AboutPage() {
                     <div className="grid grid-cols-1 gap-10 text-center sm:grid-cols-3">
                         {aboutContent.highlights.items.map((item) => (
                             <div key={item.label}>
-                                <h3 className="text-4xl font-semibold text-gold md:text-5xl">
+                                <h3 className="text-4xl font-semibold text-accent md:text-5xl">
                                     {item.number}
                                 </h3>
 
@@ -71,7 +71,7 @@ export default function AboutPage() {
 
                     {/* Explore Collections */}
                     <div className="mt-14 text-center">
-                        <h2 className="text-2xl font-semibold text-burgundy md:text-3xl">
+                        <h2 className="text-2xl font-semibold text-primary md:text-3xl">
                             {aboutContent.highlights.title}
                         </h2>
 
@@ -81,7 +81,7 @@ export default function AboutPage() {
 
                         <Link
                             href={aboutContent.highlights.buttonLink}
-                            className="mt-8 inline-flex rounded-md bg-burgundy px-7 py-3 font-medium text-white transition-colors hover:bg-gold hover:text-foreground"
+                            className="mt-8 inline-flex rounded-md bg-primary px-7 py-3 font-medium text-primary-foreground transition-colors hover:bg-accent hover:text-foreground"
                         >
                             {aboutContent.highlights.buttonText}
                         </Link>
@@ -92,15 +92,15 @@ export default function AboutPage() {
 
 
             {/* Mission & Vision Section */}
-            <section className="bg-cream py-20">
+            <section className="bg-background py-20">
                 <div className="mx-auto max-w-7xl px-4">
 
                     <div className="mb-12 text-center">
-                        <p className="text-sm font-medium uppercase tracking-[0.2em] text-gold">
+                        <p className="text-sm font-medium uppercase tracking-[0.2em] text-accent">
                             What Drives Us
                         </p>
 
-                        <h2 className="mt-3 text-3xl font-semibold text-burgundy md:text-4xl">
+                        <h2 className="mt-3 text-3xl font-semibold text-primary md:text-4xl">
                             Our Mission & Vision
                         </h2>
                     </div>
@@ -108,8 +108,8 @@ export default function AboutPage() {
                     <div className="grid gap-8 md:grid-cols-2">
 
                         {/* Mission Card */}
-                        <div className="rounded-2xl border border-border bg-card p-8 md:p-10">
-                            <h3 className="text-2xl font-semibold text-burgundy">
+                        <div className="rounded-2xl border border-border bg-surface p-8 md:p-10">
+                            <h3 className="text-2xl font-semibold text-primary">
                                 {aboutContent.mission.title}
                             </h3>
 
@@ -119,8 +119,8 @@ export default function AboutPage() {
                         </div>
 
                         {/* Vision Card */}
-                        <div className="rounded-2xl border border-border bg-card p-8 md:p-10">
-                            <h3 className="text-2xl font-semibold text-burgundy">
+                        <div className="rounded-2xl border border-border bg-surface p-8 md:p-10">
+                            <h3 className="text-2xl font-semibold text-primary">
                                 {aboutContent.vision.title}
                             </h3>
 
@@ -135,15 +135,15 @@ export default function AboutPage() {
 
 
             {/* Our Values Section */}
-            <section className="bg-card py-20">
+            <section className="bg-surface py-20">
                 <div className="mx-auto max-w-7xl px-4">
 
                     <div className="mb-12 text-center">
-                        <p className="text-sm font-medium uppercase tracking-[0.2em] text-gold">
+                        <p className="text-sm font-medium uppercase tracking-[0.2em] text-accent">
                             Our Core Values
                         </p>
 
-                        <h2 className="mt-3 text-3xl font-semibold text-burgundy md:text-4xl">
+                        <h2 className="mt-3 text-3xl font-semibold text-primary md:text-4xl">
                             {aboutContent.values.title}
                         </h2>
                     </div>
@@ -152,9 +152,9 @@ export default function AboutPage() {
                         {aboutContent.values.items.map((item) => (
                             <div
                                 key={item.title}
-                                className="rounded-2xl border border-border bg-cream p-8 text-center transition-transform duration-300 hover:-translate-y-1"
+                                className="rounded-2xl border border-border bg-background p-8 text-center transition-transform duration-300 hover:-translate-y-1"
                             >
-                                <h3 className="text-xl font-semibold text-burgundy">
+                                <h3 className="text-xl font-semibold text-primary">
                                     {item.title}
                                 </h3>
 

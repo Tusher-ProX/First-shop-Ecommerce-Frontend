@@ -1,8 +1,9 @@
 import { Check } from "lucide-react";
+import Link from "next/link";
 
-import HeroProductSlider from "../components/HeroProductSlider";
-import ProductGrid from "../components/products/ProductGrid";
-import OurStoryPreview from "../components/OurStoryPreview";
+import HeroProductSlider from "../../components/HeroProductSlider";
+import ProductGrid from "../../components/products/ProductGrid";
+import OurStoryPreview from "../../components/OurStoryPreview";
 
 const benefits = [
   "Carefully Selected Designs",
@@ -12,19 +13,19 @@ const benefits = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-cream">
+    <main className="min-h-screen bg-background">
 
 		{/* Hero Section */}
 		<section className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-20">
 			{/* Left Content */}
 			<div className="order-2 lg:order-1">
-				<p className="text-xs font-semibold uppercase tracking-[0.25em] text-burgundy sm:text-sm">
+				<p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary sm:text-sm">
 					Welcome to Sharees Canvas
 				</p>
 
 				<h1 className="mt-5 max-w-xl text-4xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl">
 					Elegance Woven Into{" "}
-					<span className="font-serif italic text-burgundy">
+					<span className="font-serif italic text-primary">
 						Every Moment.
 					</span>
 				</h1>
@@ -37,7 +38,7 @@ export default function Home() {
 				<div className="mt-8 flex flex-wrap items-center gap-4">
 					<a
 						href="#collections"
-						className="inline-flex min-h-12 items-center justify-center bg-burgundy px-7 py-3 text-sm font-medium text-white transition-colors hover:bg-[#600018] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-burgundy"
+						className="inline-flex min-h-12 items-center justify-center bg-primary px-7 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
 					>
 						Shop Collection
 						<span aria-hidden="true" className="ml-3 text-lg">
@@ -47,7 +48,7 @@ export default function Home() {
 
 					<a
 						href="/about"
-						className="inline-flex min-h-12 items-center border-b border-gold px-1 text-sm font-medium text-foreground transition-colors hover:text-burgundy"
+						className="inline-flex min-h-12 items-center border-b border-accent px-1 text-sm font-medium text-foreground transition-colors hover:text-primary"
 					>
 						Discover Our Story
 					</a>
@@ -63,7 +64,7 @@ export default function Home() {
 								aria-hidden="true"
 								size={16}
 								strokeWidth={5}
-								className="text-green-600"
+								className="text-success"
 							/>
 							{benefit}
 						</p>
@@ -90,13 +91,13 @@ export default function Home() {
 					</p>
 				</div>
 
-				<a
+				<Link
 					href="/products"
-					className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-burgundy transition-colors hover:text-[#600018] sm:absolute sm:right-0 sm:top-1/2 sm:mt-0 sm:-translate-y-1/2"
+					className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-primary transition-colors hover:text-primary sm:absolute sm:right-0 sm:top-1/2 sm:mt-0 sm:-translate-y-1/2"
 				>
 					View All Products
 					<span aria-hidden="true">→</span>
-				</a>
+				</Link>
 			</div>
 
 			<ProductGrid />

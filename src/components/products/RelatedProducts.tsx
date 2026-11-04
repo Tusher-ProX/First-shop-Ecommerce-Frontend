@@ -18,15 +18,15 @@ export default function RelatedProducts({
     }
 
     return (
-        <section className="mx-auto mt-16 max-w-7xl border-t border-[#E8DDD2] pt-10">
+        <section className="mx-auto mt-16 max-w-7xl border-t border-border pt-10">
             <div className="mb-6 flex items-center justify-between">
-                <h2 className="text-2xl font-semibold text-burgundy">
+                <h2 className="text-2xl font-semibold text-primary">
                     You May Also Like
                 </h2>
 
                 <Link
                     href="/products"
-                    className="text-sm font-medium text-burgundy underline underline-offset-4"
+                    className="text-sm font-medium text-primary underline underline-offset-4"
                 >
                     View All
                 </Link>

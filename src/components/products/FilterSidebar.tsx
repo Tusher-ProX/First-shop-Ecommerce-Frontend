@@ -85,7 +85,7 @@ export default function FilterSidebar({
             <aside
                 aria-label="Product filters"
                 aria-hidden={!isMobileOpen}
-                className={`fixed right-0 top-0 z-50 h-dvh w-[85%] max-w-85 overflow-y-auto border-l border-border bg-card p-5 shadow-xl transition-transform duration-300 ease-in-out lg:sticky lg:top-24 lg:z-auto lg:h-fit lg:w-auto lg:max-w-none lg:translate-x-0 lg:border lg:border-border lg:shadow-none ${
+                className={`fixed right-0 top-0 z-50 h-dvh w-[85%] max-w-85 overflow-y-auto border-l border-border bg-surface p-5 shadow-xl transition-transform duration-300 ease-in-out lg:sticky lg:top-24 lg:z-auto lg:h-fit lg:w-auto lg:max-w-none lg:translate-x-0 lg:border lg:border-border lg:shadow-none ${
                     isMobileOpen
                         ? "translate-x-0"
                         : "translate-x-full lg:translate-x-0"
@@ -101,7 +101,7 @@ export default function FilterSidebar({
                         <button
                             type="button"
                             onClick={onClearFilters}
-                            className="text-sm text-burgundy transition-colors hover:underline"
+                            className="text-sm text-primary transition-colors hover:underline"
                         >
                             Clear All
                         </button>
@@ -110,7 +110,7 @@ export default function FilterSidebar({
                             type="button"
                             onClick={onClose}
                             aria-label="Close filters"
-                            className="flex h-8 w-8 items-center justify-center text-xl text-foreground hover:text-burgundy lg:hidden"
+                            className="flex h-8 w-8 items-center justify-center text-xl text-foreground hover:text-primary lg:hidden"
                         >
                             <X size={18} strokeWidth={1.8} />
                         </button>
@@ -171,7 +171,7 @@ export default function FilterSidebar({
                 <button
                     type="button"
                     onClick={onClose}
-                    className="mt-2 w-full bg-burgundy px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-burgundy/90 lg:hidden"
+                    className="mt-2 w-full bg-primary px-4 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 lg:hidden"
                 >
                     Show Results
                 </button>

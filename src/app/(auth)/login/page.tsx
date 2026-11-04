@@ -4,9 +4,9 @@ import Link from "next/link";
 
 export default function LoginPage() {
 	return (
-		<div className="flex min-h-screen items-center justify-center bg-cream px-4 py-8 sm:px-6">
+		<div className="flex min-h-screen items-center justify-center bg-background px-4 py-8 sm:px-6">
 			<div className="w-full max-w-md">
-				<div className="border border-border bg-white p-5 shadow-sm sm:p-8">
+				<div className="border border-border bg-surface p-5 shadow-sm sm:p-8">
 
 					{/* Back Button and Logo */}
 					<div className="mb-6 flex items-center justify-between">
@@ -54,7 +54,7 @@ export default function LoginPage() {
 								id="email"
 								type="email"
 								placeholder="Enter your email"
-								className="w-full border border-border bg-white px-4 py-2.5 text-sm outline-none transition placeholder:text-muted/70 focus:border-primary"
+								className="w-full border border-border bg-surface px-4 py-2.5 text-sm outline-none transition placeholder:text-muted/70 focus:border-primary"
 							/>
 						</div>
 
@@ -71,7 +71,7 @@ export default function LoginPage() {
 								id="password"
 								type="password"
 								placeholder="Enter your password"
-								className="w-full border border-border bg-white px-4 py-2.5 text-sm outline-none transition placeholder:text-muted/70 focus:border-primary"
+								className="w-full border border-border bg-surface px-4 py-2.5 text-sm outline-none transition placeholder:text-muted/70 focus:border-primary"
 							/>
 						</div>
 
@@ -94,7 +94,7 @@ export default function LoginPage() {
 						<div className="pt-1">
 							<button
 								type="button"
-								className="w-full bg-burgundy px-4 py-3 text-sm font-medium text-white transition hover:bg-primary/90"
+								className="w-full bg-primary px-4 py-3 text-sm font-medium text-primary-foreground transition hover:bg-primary/90"
 							>
 								Login
 							</button>
@@ -104,7 +104,7 @@ export default function LoginPage() {
 					{/* Register Link */}
 					<div className="mt-5 border-t border-border pt-4 text-center">
 						<p className="text-sm text-muted">
-							Don't have an account?{" "}
+							Don&apos;t have an account?{" "}
 							<Link
 								href="/signup"
 								className="font-semibold text-primary hover:underline"

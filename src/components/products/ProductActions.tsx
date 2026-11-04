@@ -11,7 +11,7 @@ export default function ProductActions() {
             {/* Add to Cart */}
             <button
                 type="button"
-                className="flex flex-1 items-center justify-center gap-2 bg-burgundy px-3 py-4 text-sm font-medium text-cream transition-colors hover:bg-[#5B2431]"
+                className="flex flex-1 items-center justify-center gap-2 bg-primary px-3 py-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
             >
                 <ShoppingBag size={18} />
                 <span>Add to Cart</span>
@@ -20,7 +20,7 @@ export default function ProductActions() {
             {/* Buy Now */}
             <button
                 type="button"
-                className="flex flex-1 items-center justify-center gap-2 border border-burgundy px-3 py-4 text-sm font-medium text-burgundy transition-colors hover:bg-burgundy hover:text-cream"
+                className="flex flex-1 items-center justify-center gap-2 border border-primary px-3 py-4 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
             >
                 <Zap size={18} />
                 <span>Buy Now</span>
@@ -32,7 +32,7 @@ export default function ProductActions() {
                 onClick={() => setIsWishlisted(!isWishlisted)}
                 aria-label={isWishlisted ? "Remove from wishlist" : "Add to wishlist"}
                 aria-pressed={isWishlisted}
-                className="flex aspect-square w-14 shrink-0 items-center justify-center border border-[#E8DDD2] text-burgundy transition-colors hover:border-burgundy"
+                className="flex aspect-square w-14 shrink-0 items-center justify-center border border-border text-primary transition-colors hover:border-primary"
             >
                 <Heart
                     size={21}

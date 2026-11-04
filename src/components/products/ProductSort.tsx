@@ -40,8 +40,8 @@ export default function ProductSort({
                 }
                 className={
                     mobile
-                        ? "max-w-38.5 border border-border bg-card px-2 py-2.5 text-sm text-foreground outline-none focus:border-burgundy"
-                        : "border border-border bg-card px-3 py-2 text-sm text-foreground outline-none focus:border-burgundy"
+                        ? "max-w-38.5 border border-border bg-surface px-2 py-2.5 text-sm text-foreground outline-none focus:border-primary"
+                        : "border border-border bg-surface px-3 py-2 text-sm text-foreground outline-none focus:border-primary"
                 }
             >
                 {sortOptions.map((option) => (

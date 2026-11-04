@@ -59,14 +59,7 @@ export function useProducts(
         };
     }, [
         isEnabled,
-        queryParams.page,
-        queryParams.limit,
-        queryParams.minPrice,
-        queryParams.maxPrice,
-        queryParams.categories,
-        queryParams.fabrics,
-        queryParams.colors,
-        queryParams.sortBy,
+        queryParams,
         retryCount,
     ]);
 

@@ -20,9 +20,9 @@ export default function ColorSelector({ colors }: ColorSelectorProps) {
 
     return (
         <div className="mt-6">
-            <p className="mb-3 text-sm font-medium text-[#3D2925]">
+            <p className="mb-3 text-sm font-medium text-foreground">
                 Select Color:{" "}
-                <span className="font-normal text-gray-500">
+                <span className="font-normal text-muted-foreground">
                     {selectedColor.name}
                 </span>
             </p>
@@ -37,8 +37,8 @@ export default function ColorSelector({ colors }: ColorSelectorProps) {
                         aria-pressed={selectedColor.name === color.name}
                         className={`h-9 w-9 rounded-full border-2 ${
                             selectedColor.name === color.name
-                                ? "border-burgundy ring-2 ring-burgundy/20"
-                                : "border-gray-300"
+                                ? "border-primary ring-2 ring-primary/20"
+                                : "border-border"
                         }`}
                         style={{ backgroundColor: color.hex }}
                     />

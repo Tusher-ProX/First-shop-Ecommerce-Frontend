@@ -23,10 +23,10 @@ export default function ProductCard({
     const inStock = stock > 0;
 
     return (
-        <Link href={`/products/${id}`} className="group block hover:bg-white">
+        <Link href={`/products/${id}`} className="group block hover:bg-surface">
             <article className="h-full p-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:p-3">
                 {/* Product Image */}
-                <div className="relative aspect-3/4 overflow-hidden bg-[#F1EAE3]">
+                <div className="relative aspect-3/4 overflow-hidden bg-surface-muted">
                     <Image
                         src={image}
                         alt={name}
@@ -40,20 +40,20 @@ export default function ProductCard({
                 <div className="mt-3 space-y-2 text-center">
                     {/* Product Name and Stock Status */}
                     {fabric && (
-                        <p className="text-xs text-gray-500">
+                        <p className="text-xs text-muted-foreground">
                             {fabric}
                         </p>
                     )}
                     <div className="flex flex-col items-center gap-2">
-                        <h3 className="text-sm font-medium text-[#3D2925] sm:text-base">
+                        <h3 className="text-sm font-medium text-foreground sm:text-base">
                             {name}
                         </h3>
 
                         <span
                             className={`shrink-0 rounded-full px-2 py-1 text-[10px] font-medium sm:text-xs ${
                                 inStock
-                                    ? "bg-green-50 text-green-700"
-                                    : "bg-red-50 text-red-600"
+                                    ? "bg-success/10 text-success"
+                                    : "bg-error/10 text-error"
                             }`}
                         >
                             {inStock ? "In Stock" : "Out of Stock"}
@@ -62,12 +62,12 @@ export default function ProductCard({
 
                     {/* Product Price */}
                     <div className="flex items-center justify-center gap-2">
-                        <span className="text-base font-semibold text-[#722F3E]">
+                        <span className="text-base font-semibold text-primary">
                             ৳{price.toLocaleString("en-BD")}
                         </span>
 
                         {originalPrice && originalPrice > price && (
-                            <span className="text-xs text-gray-400 line-through">
+                            <span className="text-xs text-muted-foreground line-through">
                                 ৳{originalPrice.toLocaleString("en-BD")}
                             </span>
                         )}

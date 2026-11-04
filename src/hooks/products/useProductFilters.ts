@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import type { ProductSortOrder } from "@/src/services/products";
 
@@ -17,7 +17,6 @@ function updateSelection(
 }
 
 export function useProductFilters(
-    isFilterReady: boolean,
     minPrice: number,
     maxPrice: number
 ) {
@@ -26,11 +25,11 @@ export function useProductFilters(
     const [sortOrder, setSortOrder] =
         useState<ProductSortOrder>("featured");
 
-    const [selectedMinPrice, setSelectedMinPrice] =
-        useState(minPrice);
+    const [selectedMinPriceOverride, setSelectedMinPriceOverride] =
+        useState<number | null>(null);
 
-    const [selectedMaxPrice, setSelectedMaxPrice] =
-        useState(maxPrice);
+    const [selectedMaxPriceOverride, setSelectedMaxPriceOverride] =
+        useState<number | null>(null);
 
     const [selectedCategories, setSelectedCategories] =
         useState<string[]>([]);
@@ -41,14 +40,10 @@ export function useProductFilters(
     const [selectedColors, setSelectedColors] =
         useState<string[]>([]);
 
-    // Sync selected price range when filter options load
-    useEffect(() => {
-        if (!isFilterReady) return;
-
-        setSelectedMinPrice(minPrice);
-        setSelectedMaxPrice(maxPrice);
-        setCurrentPage(1);
-    }, [isFilterReady, minPrice, maxPrice]);
+    const selectedMinPrice =
+        selectedMinPriceOverride ?? minPrice;
+    const selectedMaxPrice =
+        selectedMaxPriceOverride ?? maxPrice;
 
     const updateCategory = (
         category: string,
@@ -84,7 +79,7 @@ export function useProductFilters(
     };
 
     const updateMinPrice = (value: number) => {
-        setSelectedMinPrice(
+        setSelectedMinPriceOverride(
             Math.min(value, selectedMaxPrice)
         );
 
@@ -92,7 +87,7 @@ export function useProductFilters(
     };
 
     const updateMaxPrice = (value: number) => {
-        setSelectedMaxPrice(
+        setSelectedMaxPriceOverride(
             Math.max(value, selectedMinPrice)
         );
 
@@ -103,8 +98,8 @@ export function useProductFilters(
         setSelectedCategories([]);
         setSelectedFabrics([]);
         setSelectedColors([]);
-        setSelectedMinPrice(minPrice);
-        setSelectedMaxPrice(maxPrice);
+        setSelectedMinPriceOverride(null);
+        setSelectedMaxPriceOverride(null);
         setCurrentPage(1);
     };
 

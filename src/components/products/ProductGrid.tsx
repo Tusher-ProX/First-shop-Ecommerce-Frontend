@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 
 import FilterSidebar from "./FilterSidebar";
 import ProductResults from "./ProductResults";
@@ -56,9 +56,30 @@ export default function ProductGrid({
         updateMaxPrice,
         clearFilters,
     } = useProductFilters(
-        isFilterReady,
         priceRange.min,
         priceRange.max
+    );
+
+    const queryParams = useMemo(
+        () => ({
+            page: currentPage,
+            limit: PRODUCTS_PER_PAGE,
+            minPrice: selectedMinPrice,
+            maxPrice: selectedMaxPrice,
+            categories: selectedCategories,
+            fabrics: selectedFabrics,
+            colors: selectedColors,
+            sortBy: sortOrder,
+        }),
+        [
+            currentPage,
+            selectedMinPrice,
+            selectedMaxPrice,
+            selectedCategories,
+            selectedFabrics,
+            selectedColors,
+            sortOrder,
+        ]
     );
 
     // Fetch products
@@ -71,16 +92,7 @@ export default function ProductGrid({
         retry: retryProducts,
     } = useProducts(
         isFilterReady,
-        {
-            page: currentPage,
-            limit: PRODUCTS_PER_PAGE,
-            minPrice: selectedMinPrice,
-            maxPrice: selectedMaxPrice,
-            categories: selectedCategories,
-            fabrics: selectedFabrics,
-            colors: selectedColors,
-            sortBy: sortOrder,
-        }
+        queryParams
     );
 
     const error = filterError || productError;
