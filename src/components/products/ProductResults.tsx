@@ -26,14 +26,14 @@ export default function ProductResults({
     if (error) {
         return (
             <div className="py-12 text-center">
-                <p className="mb-4 text-red-600">
+                <p className="mb-4 text-error">
                     {error}
                 </p>
 
                 <button
                     type="button"
                     onClick={onRetry}
-                    className="border border-burgundy px-5 py-2 text-sm text-burgundy transition-colors hover:bg-burgundy hover:text-white"
+                    className="border border-primary px-5 py-2 text-sm text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
                 >
                     Try Again
                 </button>

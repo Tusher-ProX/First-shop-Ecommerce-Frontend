@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 type ProductColor = {
@@ -45,11 +46,13 @@ export default function ProductGallery({
     return (
         <div>
             {/* Main Image */}
-            <div className="relative aspect-3/4 overflow-hidden bg-[#F1EAE3]">
-                <img
+            <div className="relative aspect-3/4 overflow-hidden bg-surface-muted">
+                <Image
                     src={selectedImage}
                     alt={`${name}${selectedColor ? ` - ${selectedColor.name}` : ""}`}
-                    className="h-full w-full object-cover"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover"
                 />
             </div>
 
@@ -62,13 +65,15 @@ export default function ProductGallery({
                         onClick={() => setSelectedImage(image)}
                         className={`h-20 w-16 overflow-hidden border-2 ${
                             selectedImage === image
-                                ? "border-burgundy"
+                                ? "border-primary"
                                 : "border-transparent"
                         }`}
                     >
-                        <img
+                        <Image
                             src={image}
                             alt={`${name} image ${index + 1}`}
+                            width={64}
+                            height={80}
                             className="h-full w-full object-cover"
                         />
                     </button>
@@ -78,9 +83,9 @@ export default function ProductGallery({
             {/* Color Selection */}
             {colors.length > 0 && (
                 <div className="mt-6">
-                    <p className="mb-3 text-sm font-medium text-[#3D2925]">
+                    <p className="mb-3 text-sm font-medium text-foreground">
                         Select Color:{" "}
-                        <span className="font-normal text-gray-500">
+                        <span className="font-normal text-muted-foreground">
                             {selectedColor?.name}
                         </span>
                     </p>
@@ -95,8 +100,8 @@ export default function ProductGallery({
                                 aria-pressed={selectedColor?.name === color.name}
                                 className={`h-9 w-9 rounded-full border-2 ${
                                     selectedColor?.name === color.name
-                                        ? "border-burgundy ring-2 ring-burgundy/20"
-                                        : "border-gray-300"
+                                        ? "border-primary ring-2 ring-primary/20"
+                                        : "border-border"
                                 }`}
                                 style={{ backgroundColor: color.hex }}
                             />

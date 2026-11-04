@@ -20,17 +20,17 @@ export default function ReviewToggleButton({
             onClick={() => setIsOpen(!isOpen)}
             className="mt-2 flex items-center gap-2 text-sm hover:opacity-80"
         >
-            <span className="flex items-center gap-0.5 text-[#D4A64A]">
+            <span className="flex items-center gap-0.5 text-accent">
                 {[1, 2, 3, 4, 5].map((star) => (
                     <Star
                         key={star}
                         size={15}
-                        className="fill-[#D4A64A]"
+                        className="fill-accent"
                     />
                 ))}
             </span>
 
-            <span className="font-medium text-burgundy">
+            <span className="font-medium text-primary">
                 {rating.toFixed(1)} ({reviewCount} Reviews)
             </span>
         </button>

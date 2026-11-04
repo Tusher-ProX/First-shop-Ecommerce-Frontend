@@ -18,16 +18,16 @@ const RANGE_INPUT_CLASSES = `
     [&::-webkit-slider-thumb]:appearance-none
     [&::-webkit-slider-thumb]:rounded-full
     [&::-webkit-slider-thumb]:border-2
-    [&::-webkit-slider-thumb]:border-burgundy
-    [&::-webkit-slider-thumb]:bg-white
+    [&::-webkit-slider-thumb]:border-primary
+    [&::-webkit-slider-thumb]:bg-surface
     [&::-moz-range-thumb]:pointer-events-auto
     [&::-moz-range-thumb]:h-4
     [&::-moz-range-thumb]:w-4
     [&::-moz-range-thumb]:appearance-none
     [&::-moz-range-thumb]:rounded-full
     [&::-moz-range-thumb]:border-2
-    [&::-moz-range-thumb]:border-burgundy
-    [&::-moz-range-thumb]:bg-white
+    [&::-moz-range-thumb]:border-primary
+    [&::-moz-range-thumb]:bg-surface
 `;
 
 export default function PriceRangeFilter({
@@ -81,7 +81,7 @@ export default function PriceRangeFilter({
                 <div className="absolute left-0 top-1/2 h-1.5 w-full -translate-y-1/2 rounded-full bg-border" />
 
                 <div
-                    className="absolute top-1/2 h-1.5 -translate-y-1/2 rounded-full bg-burgundy"
+                    className="absolute top-1/2 h-1.5 -translate-y-1/2 rounded-full bg-primary"
                     style={{
                         left: `${minPercent}%`,
                         width: `${Math.max(

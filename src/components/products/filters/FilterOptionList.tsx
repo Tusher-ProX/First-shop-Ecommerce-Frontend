@@ -44,7 +44,7 @@ export default function FilterOptionList({
                                     event.target.checked
                                 )
                             }
-                            className="accent-burgundy"
+                            className="accent-primary"
                         />
 
                         {colorOptions && "hex" in option && (

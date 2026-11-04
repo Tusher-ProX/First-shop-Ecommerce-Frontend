@@ -19,7 +19,7 @@ export default function BlousePieceSelector({
 
     return (
         <div className="mt-6">
-            <p className="mb-3 text-sm font-medium text-[#3D2925]">
+            <p className="mb-3 text-sm font-medium text-foreground">
                 Blouse Piece
             </p>
 
@@ -30,14 +30,14 @@ export default function BlousePieceSelector({
                     aria-pressed={selected}
                     className={`flex-1 border p-4 text-left transition-colors ${
                         selected
-                            ? "border-burgundy bg-burgundy/5"
-                            : "border-[#E8DDD2]"
+                            ? "border-primary bg-primary/5"
+                            : "border-border"
                     }`}
                 >
-                    <span className="block font-medium text-[#3D2925]">
+                    <span className="block font-medium text-foreground">
                         Add Blouse Piece
                     </span>
-                    <span className="mt-1 block text-sm text-gray-500">
+                    <span className="mt-1 block text-sm text-muted-foreground">
                         +৳{price.toLocaleString("en-BD")}
                     </span>
                 </button>
@@ -48,14 +48,14 @@ export default function BlousePieceSelector({
                     aria-pressed={!selected}
                     className={`flex-1 border p-4 text-left transition-colors ${
                         !selected
-                            ? "border-burgundy bg-burgundy/5"
-                            : "border-[#E8DDD2]"
+                            ? "border-primary bg-primary/5"
+                            : "border-border"
                     }`}
                 >
-                    <span className="block font-medium text-[#3D2925]">
+                    <span className="block font-medium text-foreground">
                         Without Blouse Piece
                     </span>
-                    <span className="mt-1 block text-sm text-gray-500">
+                    <span className="mt-1 block text-sm text-muted-foreground">
                         No extra charge
                     </span>
                 </button>

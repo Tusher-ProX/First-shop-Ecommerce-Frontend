@@ -58,7 +58,7 @@ export default function ProductPagination({
                 type="button"
                 onClick={() => onPageChange(currentPage - 1)}
                 disabled={currentPage === 1}
-                className="px-3 py-2 text-sm text-foreground transition-colors hover:text-burgundy disabled:cursor-not-allowed disabled:opacity-40"
+                className="px-3 py-2 text-sm text-foreground transition-colors hover:text-primary disabled:cursor-not-allowed disabled:opacity-40"
             >
                 ← Previous
             </button>
@@ -81,8 +81,8 @@ export default function ProductPagination({
                         }
                         className={`flex h-10 w-10 items-center justify-center text-sm transition-colors ${
                             currentPage === page
-                                ? "bg-burgundy text-white"
-                                : "text-foreground hover:bg-burgundy/10"
+                                ? "bg-primary text-primary-foreground"
+                                : "text-foreground hover:bg-primary/10"
                         }`}
                     >
                         {page}
@@ -94,7 +94,7 @@ export default function ProductPagination({
                 type="button"
                 onClick={() => onPageChange(currentPage + 1)}
                 disabled={currentPage === totalPages}
-                className="px-3 py-2 text-sm text-foreground transition-colors hover:text-burgundy disabled:cursor-not-allowed disabled:opacity-40"
+                className="px-3 py-2 text-sm text-foreground transition-colors hover:text-primary disabled:cursor-not-allowed disabled:opacity-40"
             >
                 Next →
             </button>

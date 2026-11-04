@@ -17,7 +17,7 @@ export default function ProductReviews({
     reviewCount,
 }: ProductReviewsProps) {
 
-    const { isOpen, setIsOpen } = useProductReview();
+    const { isOpen } = useProductReview();
     const reviewSectionRef = useRef<HTMLElement>(null);
 
     useEffect(() => {
@@ -33,15 +33,15 @@ export default function ProductReviews({
         isOpen && (
             <section 
                 ref={reviewSectionRef}
-                className="mx-auto mt-16 max-w-7xl border-t border-[#E8DDD2] pt-10"
+                className="mx-auto mt-16 max-w-7xl border-t border-border pt-10"
             >
-                <h2 className="text-2xl font-semibold text-burgundy">
+                <h2 className="text-2xl font-semibold text-primary">
                     Customer Reviews
                 </h2>
 
                 {/* Rating Summary */}
                 <div className="mt-5 flex flex-wrap items-center gap-4">
-                    <span className="text-4xl font-semibold text-burgundy">
+                    <span className="text-4xl font-semibold text-primary">
                         {rating.toFixed(1)}
                     </span>
 
@@ -51,12 +51,12 @@ export default function ProductReviews({
                                 <Star
                                     key={star}
                                     size={18}
-                                    className="fill-[#D4A64A] text-[#D4A64A]"
+                                    className="fill-accent text-accent"
                                 />
                             ))}
                         </div>
 
-                        <p className="mt-1 text-sm text-gray-500">
+                        <p className="mt-1 text-sm text-muted-foreground">
                             Based on {reviewCount} reviews
                         </p>
                     </div>
@@ -68,14 +68,14 @@ export default function ProductReviews({
                         {reviews.map((review) => (
                             <article
                                 key={review.id}
-                                className="border-b border-[#E8DDD2] pb-6"
+                                className="border-b border-border pb-6"
                             >
                                 <div className="flex flex-wrap items-center justify-between gap-2">
-                                    <h3 className="font-medium text-[#3D2925]">
+                                    <h3 className="font-medium text-foreground">
                                         {review.customerName}
                                     </h3>
 
-                                    <span className="text-xs text-gray-400">
+                                    <span className="text-xs text-muted-foreground">
                                         {review.date}
                                     </span>
                                 </div>
@@ -87,14 +87,14 @@ export default function ProductReviews({
                                             size={15}
                                             className={
                                                 star <= review.rating
-                                                    ? "fill-[#D4A64A] text-[#D4A64A]"
-                                                    : "text-gray-300"
+                                                    ? "fill-accent text-accent"
+                                                    : "text-muted-foreground/40"
                                             }
                                         />
                                     ))}
                                 </div>
 
-                                <p className="mt-3 text-sm leading-6 text-gray-600">
+                                <p className="mt-3 text-sm leading-6 text-muted-foreground">
                                     {review.comment}
                                 </p>
                             </article>

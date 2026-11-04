@@ -29,12 +29,12 @@ export default function ProductPurchaseOptions({
             />
 
             {/* Total Price */}
-            <div className="mt-6 border-t border-[#E8DDD2] pt-5">
-                <p className="text-sm text-gray-500">
+            <div className="mt-6 border-t border-border pt-5">
+                <p className="text-sm text-muted-foreground">
                     Total Price
                 </p>
 
-                <p className="mt-1 text-2xl font-semibold text-burgundy">
+                <p className="mt-1 text-2xl font-semibold text-primary">
                     ৳{totalPrice.toLocaleString("en-BD")}
                 </p>
             </div>
