@@ -4,9 +4,9 @@ import Link from "next/link";
 
 export default function SignupPage() {
 	return (
-		<div className="flex min-h-screen items-center justify-center bg-cream px-4 py-8 sm:px-6">
+		<div className="flex min-h-screen items-center justify-center bg-background px-4 py-8 sm:px-6">
 			<div className="w-full max-w-md">
-				<div className="border border-border bg-white p-5 shadow-sm sm:p-8">
+				<div className="border border-border bg-surface p-5 shadow-sm sm:p-8">
 
 					{/* Back to Home and Logo */}
 					<div className="mb-6 flex items-center justify-between">
@@ -59,7 +59,7 @@ export default function SignupPage() {
 								autoComplete="name"
 								placeholder="Enter your full name"
 								required
-								className="w-full border border-border bg-white px-4 py-2.5 text-sm outline-none transition placeholder:text-muted/70 focus:border-primary"
+								className="w-full border border-border bg-surface px-4 py-2.5 text-sm outline-none transition placeholder:text-muted/70 focus:border-primary"
 							/>
 						</div>
 
@@ -79,7 +79,7 @@ export default function SignupPage() {
 								autoComplete="email"
 								placeholder="Enter your email"
 								required
-								className="w-full border border-border bg-white px-4 py-2.5 text-sm outline-none transition placeholder:text-muted/70 focus:border-primary"
+								className="w-full border border-border bg-surface px-4 py-2.5 text-sm outline-none transition placeholder:text-muted/70 focus:border-primary"
 							/>
 						</div>
 
@@ -99,7 +99,7 @@ export default function SignupPage() {
 								autoComplete="new-password"
 								placeholder="Create a password"
 								required
-								className="w-full border border-border bg-white px-4 py-2.5 text-sm outline-none transition placeholder:text-muted/70 focus:border-primary"
+								className="w-full border border-border bg-surface px-4 py-2.5 text-sm outline-none transition placeholder:text-muted/70 focus:border-primary"
 							/>
 						</div>
 
@@ -119,14 +119,14 @@ export default function SignupPage() {
 								autoComplete="new-password"
 								placeholder="Re-enter your password"
 								required
-								className="w-full border border-border bg-white px-4 py-2.5 text-sm outline-none transition placeholder:text-muted/70 focus:border-primary"
+								className="w-full border border-border bg-surface px-4 py-2.5 text-sm outline-none transition placeholder:text-muted/70 focus:border-primary"
 							/>
 						</div>
 
 						{/* Create Account Button */}
 						<button
 							type="button"
-							className="block w-full border-0 bg-[#800020] px-4 py-3 text-center text-base font-semibold text-white transition hover:bg-[#68001A]"
+							className="block w-full border-0 bg-primary px-4 py-3 text-center text-base font-semibold text-primary-foreground transition hover:bg-primary/90"
 						>
 							Create Account
 						</button>
