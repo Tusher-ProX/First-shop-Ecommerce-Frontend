@@ -29,7 +29,7 @@ export default function HeroProductSlider() {
 
                 <Link
                     href="/products"
-                    className="shrink-0 text-sm font-semibold text-burgundy transition-colors hover:text-[#600018]"
+                    className="shrink-0 text-sm font-semibold text-primary transition-colors hover:text-primary"
                 >
                     View All →
                 </Link>
@@ -44,7 +44,7 @@ export default function HeroProductSlider() {
             <Link
                 href={`/products/${activeProduct.productId}`}
                 aria-label={`View ${activeProduct.name}`}
-                className="group relative block aspect-4/5 w-full overflow-hidden bg-[#E9DED3]"
+                className="group relative block aspect-4/5 w-full overflow-hidden bg-surface-muted"
             >
                 <Image
                     key={activeProduct.id}
@@ -58,11 +58,11 @@ export default function HeroProductSlider() {
 
                 {/* Minimal Image Text */}
                 <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/70 via-black/30 to-transparent px-5 pb-5 pt-16 sm:px-6 sm:pb-6">
-                <h3 className="font-serif text-2xl font-semibold text-white sm:text-3xl">
+                <h3 className="font-serif text-2xl font-semibold text-inverse-foreground sm:text-3xl">
                     {activeProduct.name}
                 </h3>
 
-                <p className="mt-1 text-sm text-white/90 sm:text-base">
+                <p className="mt-1 text-sm text-inverse-foreground/90 sm:text-base">
                     {activeProduct.description}
                 </p>
                 </div>
@@ -82,8 +82,8 @@ export default function HeroProductSlider() {
                         onClick={() => setActiveIndex(index)}
                         className={`h-2.5 rounded-full transition-all ${
                         activeIndex === index
-                            ? "w-8 bg-burgundy"
-                            : "w-2.5 bg-[#C6A15B]"
+                            ? "w-8 bg-primary"
+                            : "w-2.5 bg-accent"
                         }`}
                     />
                 ))}
